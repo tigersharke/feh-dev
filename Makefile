@@ -1,5 +1,5 @@
 PORTNAME=	feh
-DISTVERSION=	g20230215
+DISTVERSION=	g20230405
 CATEGORIES=	graphics
 PKGNAMESUFFIX=  -dev
 DISTNAME=	${PORTNAME}-${GH_TAGNAME}
@@ -19,7 +19,7 @@ CONFLICTS=	feh
 USE_GITHUB=	nodefault
 GH_ACCOUNT=	derf
 GH_PROJECT=	feh
-GH_TAGNAME=	421273de0c33da276dd8c1bfb19fe902e999521d
+GH_TAGNAME=	82efb76c026951ff102f46a44b5f0324aabd1b33
 
 #USE_LDCONFIG=	yes
 
@@ -76,7 +76,6 @@ XINERAMA_MAKE_ENV_OFF=	xinerama=0
 
 # Above options may affect some dependencies but presently do not change what is installed.
 # The pkg-plist attempts to conditional install for the examples option, but uncertain.
-
 
 #post-patch-DOCS-off:
 #	@${REINPLACE_CMD} -e 's|install-doc||' \

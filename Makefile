@@ -21,8 +21,6 @@ GH_ACCOUNT=	derf
 GH_PROJECT=	feh
 GH_TAGNAME=	775135336008ef48308d496b1ef1c06fdd58ed9e
 
-#USE_LDCONFIG=	yes
-
 WRKSRC=		${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 USE_XORG=	x11 xt xinerama
@@ -42,6 +40,7 @@ OPTIONS_SUB=	yes
 #APP_MAKE_ENV=		app=1
 APP_MAKE_ENV_OFF=	app=0
 
+CURL_DESC=		Data transfer support, requires curl heimdal option
 CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
 CURL_MAKE_ENV=		curl=1
 CURL_MAKE_ENV_OFF=	curl=0

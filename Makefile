@@ -1,5 +1,5 @@
 PORTNAME=		feh
-DISTVERSION=	g20260426
+DISTVERSION=	g20260501
 CATEGORIES=		graphics
 MASTER_SITES= 	GH
 PKGNAMESUFFIX=  -dev
@@ -20,7 +20,7 @@ CONFLICTS=		feh
 USE_GITHUB=		nodefault
 GH_ACCOUNT=		derf
 GH_PROJECT=		feh
-GH_TAGNAME=		82e8c5b95173d82c85c2bde32f4d5ba43a14fc43
+GH_TAGNAME=		0d4436400cf7577cd63ede6948de764e47deadc1
 
 WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
@@ -39,14 +39,13 @@ CURL_DESC=				Data transfer support, requires curl heimdal option. use libcurl t
 DEBUG_DESCR=			debug build, enables --debug
 EXIF_DESC=				Enable builtin EXIF tag display support
 HELP_DESC=				include help text (refers to the manpage otherwise)
-INOTIFY_DESC=			enable inotify, needed for --auto-reload
+#INOTIFY_DESC=			enable inotify, needed for --auto-reload
 STAT64_DESC=			Support CIFS shares from 64bit hosts on 32bit machines
 MAGIC_DESC=				Use libmagic to filter unsupported file formats
 MKSTEMPS_DESC=			Whether your libc provides mkstemps(). feh will be able to load gif images via libcurl
 VERSCMP_DESC=			Whether your libc provides strvercmp() [it does not?] feh will not use an internal implementation
 XINERAMA_DESC=			Support Xinerama/XRandR multiscreen setups
 
-# This option causes failure/error: gtk-update-icon-cache: No theme index file.
 APP_MAKE_ENV=			app=1
 APP_MAKE_ENV_OFF=		app=0
 
@@ -64,9 +63,7 @@ EXIF_MAKE_ENV_OFF=		exif=0
 HELP_MAKE_ENV=			help=1
 HELP_MAKE_ENV_OFF=		help=0
 
-# inotify is a Linux kernel mechanism which could be replaced by security/fswatch in a script 
-# with feh but the inotify mechanism itself will not exist, kqueue could be overloaded.
-INOTIFY_MAKE_ENV=		inotify=1
+#INOTIFY_MAKE_ENV=		inotify=1
 INOTIFY_MAKE_ENV_OFF=	inotify=0
 
 STAT64_MAKE_ENV=		stat64=1

@@ -17,12 +17,10 @@ USES=			compiler:c++11-lang cpe desktop-file-utils gmake localbase:ldflags tar:b
 
 CONFLICTS=		feh
 
-USE_GITHUB=		nodefault
+USE_GITHUB=		yes
 GH_ACCOUNT=		derf
 GH_PROJECT=		feh
 GH_TAGNAME=		0d4436400cf7577cd63ede6948de764e47deadc1
-
-WRKSRC=			${WRKDIR}/${PORTNAME}-${GH_TAGNAME}
 
 USE_XORG=		x11 xt xinerama
 #CPE_VENDOR=	feh_project

@@ -8,6 +8,7 @@ echo "adjusting pkg-plist file"
 cat /var/tmp/temporary_pkg-plist | \
 sed \
 -e 's#^\/you\/have\/to\/check\/what\/makeplist\/gives\/you##' \
+-e 's#%%PORTDOCS%%##' \
 -e '/^$/d' \
 > /var/tmp/temporary_pkg-plist-fixed
 cp /var/tmp/temporary_pkg-plist-fixed ../pkg-plist

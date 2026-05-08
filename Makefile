@@ -1,5 +1,5 @@
 PORTNAME=		feh
-DISTVERSION=	g20260506
+DISTVERSION=	g20260507
 CATEGORIES=		graphics
 MASTER_SITES= 	GH
 PKGNAMESUFFIX=  -dev
@@ -20,24 +20,23 @@ CONFLICTS=		feh
 USE_GITHUB=		yes
 GH_ACCOUNT=		derf
 GH_PROJECT=		feh
-GH_TAGNAME=		9dccd2f0c5dec0bab733dd30fd828662d682a6f7
+GH_TAGNAME=		c5e05ad638e819f0f9852df9b33400ca63662d19
 
 USE_XORG=		x11 xt xinerama
-#CPE_VENDOR=	feh_project
 
 MAKE_ENV+=		LDFLAGS="${LDFLAGS}"
 
-OPTIONS_DEFINE=	APP CURL DCRAW DEBUG DOCS EXAMPLES EXIF HELP STAT64 MKSTEMPS XINERAMA
+OPTIONS_DEFINE=	APP CURL DEBUG EXIF HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
 
-OPTIONS_DEFAULT=DOCS DCRAW EXIF HELP MKSTEMPS XINERAMA
+OPTIONS_DEFAULT=DOCS DCRAW EXIF HELP MAGIC MKSTEMPS XINERAMA
 OPTIONS_SUB=	yes
 
-APP_DESC=				install icons to /usr/share, and call gtk-update-icon-cache afterwards
+APP_DESC=				Install icons to /usr/share, and call gtk-update-icon-cache afterwards
 CURL_DESC=				Data transfer support, requires curl heimdal option. use libcurl to view https:// and similar images
-DEBUG_DESCR=			debug build, enables --debug
+DEBUG_DESCR=			Debug build, enables --debug
 EXIF_DESC=				Enable builtin EXIF tag display support
-HELP_DESC=				include help text (refers to the manpage otherwise)
-#INOTIFY_DESC=			enable inotify, needed for --auto-reload
+HELP_DESC=				Include help text (refers to the manpage otherwise)
+#INOTIFY_DESC=			Enable inotify, needed for --auto-reload
 STAT64_DESC=			Support CIFS shares from 64bit hosts on 32bit machines
 MAGIC_DESC=				Use libmagic to filter unsupported file formats
 MKSTEMPS_DESC=			Whether your libc provides mkstemps(). feh will be able to load gif images via libcurl
@@ -92,9 +91,8 @@ XINERAMA_MAKE_ENV_OFF=	xinerama=0
 #	mkstemps 	1 			Whether your libc provides mkstemps(). If set to 0, feh will be unable to load gif images via libcurl
 #	verscmp 	1 			Whether your libc provides strvercmp(). If set to 0, feh will use an internal implementation.
 #	xinerama 	1 			Support Xinerama/XRandR multiscreen setups
-# Above options may affect some dependencies but presently do not change what is installed.
-# The pkg-plist attempts to conditional install for the examples option, but uncertain.
 
+# Not sure if necessary
 #post-install:
 #	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/feh
 

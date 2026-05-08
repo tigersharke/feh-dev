@@ -4,10 +4,10 @@ share/applications/feh.desktop
 %%PORTDOCS%%%%DOCSDIR%%/ChangeLog
 %%PORTDOCS%%%%DOCSDIR%%/README.md
 %%PORTDOCS%%%%DOCSDIR%%/TODO
-%%EXAMPLES%%%%PORTDOCS%%%%DOCSDIR%%/examples/buttons
-%%EXAMPLES%%%%PORTDOCS%%%%DOCSDIR%%/examples/find-lowres
-%%EXAMPLES%%%%PORTDOCS%%%%DOCSDIR%%/examples/keys
-%%EXAMPLES%%%%PORTDOCS%%%%DOCSDIR%%/examples/themes
+%%PORTDOCS%%%%DOCSDIR%%/examples/buttons
+%%PORTDOCS%%%%DOCSDIR%%/examples/find-lowres
+%%PORTDOCS%%%%DOCSDIR%%/examples/keys
+%%PORTDOCS%%%%DOCSDIR%%/examples/themes
 %%DATADIR%%/fonts/black.style
 %%DATADIR%%/fonts/menu.style
 %%DATADIR%%/fonts/yudit.ttf

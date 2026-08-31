@@ -1,5 +1,5 @@
 PORTNAME=		feh
-DISTVERSION=	g20260507
+DISTVERSION=	g20260823
 CATEGORIES=		graphics
 MASTER_SITES= 	GH
 PKGNAMESUFFIX=  -dev
@@ -8,6 +8,7 @@ DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
 MAINTAINER=		nope@nothere
 COMMENT=		Image viewer that utilizes Imlib2
+WWW=			https://feh.finalrewind.org/
 
 LICENSE=		MIT
 
@@ -20,7 +21,7 @@ CONFLICTS=		feh
 USE_GITHUB=		yes
 GH_ACCOUNT=		derf
 GH_PROJECT=		feh
-GH_TAGNAME=		c5e05ad638e819f0f9852df9b33400ca63662d19
+GH_TAGNAME=		5c61792202b0852b24634d3d1a5098d880f5883f
 
 USE_XORG=		x11 xt xinerama
 
@@ -30,8 +31,8 @@ OPTIONS_DEFINE=	APP CURL DEBUG EXIF HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
 
 OPTIONS_DEFAULT=DOCS DCRAW EXIF HELP MAGIC MKSTEMPS XINERAMA
 OPTIONS_SUB=	yes
-
-APP_DESC=				Install icons to /usr/share, and call gtk-update-icon-cache afterwards
+SLASH=/
+APP_DESC=				Install icons to "${SLASH}usr${SLASH}share", and call gtk-update-icon-cache afterwards
 CURL_DESC=				Data transfer support, requires curl heimdal option. use libcurl to view https:// and similar images
 DEBUG_DESCR=			Debug build, enables --debug
 EXIF_DESC=				Enable builtin EXIF tag display support

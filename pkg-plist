@@ -8,8 +8,7 @@ share/applications/feh.desktop
 %%DOCSDIR%%/examples/find-lowres
 %%DOCSDIR%%/examples/keys
 %%DOCSDIR%%/examples/themes
-%%DATADIR%%/fonts/black.style
-%%DATADIR%%/fonts/menu.style
+%%DATADIR%%/fonts/NotoSans-Medium.ttf
 %%DATADIR%%/fonts/yudit.ttf
 %%DATADIR%%/images/feh.png
 %%DATADIR%%/images/feh.svg

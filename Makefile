@@ -1,97 +1,104 @@
-PORTNAME=		feh
-DISTVERSION=	g20260907
-CATEGORIES=		graphics
+PORTNAME=	feh
+DISTVERSION=	g20260916
+CATEGORIES=	graphics
 MASTER_SITES= 	GH
 PKGNAMESUFFIX=  -dev
-DISTNAME=		${PORTNAME}-${GH_TAGNAME}
+DISTNAME=	${PORTNAME}-${GH_TAGNAME}
 DIST_SUBDIR=	${PORTNAME}${PKGNAMESUFFIX}
 
-MAINTAINER=		nope@nothere
-COMMENT=		Image viewer that utilizes Imlib2
-WWW=			https://feh.finalrewind.org/
+MAINTAINER=	nope@nothere
+COMMENT=	Image viewer that utilizes Imlib2
+WWW=		https://feh.finalrewind.org/
 
-LICENSE=		MIT
+LICENSE=	MIT
 
 LIB_DEPENDS=	libImlib2.so:graphics/imlib2 libpng.so:graphics/png
 
-USES=			compiler:c++11-lang cpe desktop-file-utils gmake localbase:ldflags tar:bzip2 xorg
+USES=		compiler:c++11-lang cpe desktop-file-utils gmake localbase:ldflags tar:bzip2 xorg
 
-CONFLICTS=		feh
+CONFLICTS=	feh
 
-USE_GITHUB=		yes
-GH_ACCOUNT=		derf
-GH_PROJECT=		feh
-GH_TAGNAME=		2635bad29fa5fb5753c601c0c10f81152c2e5461
+USE_GITHUB=	yes
+GH_ACCOUNT=	derf
+GH_PROJECT=	feh
+GH_TAGNAME=	4852b6f8b47f2b31be2b46851b43ab772defdefa
 
-USE_XORG=		x11 xt xinerama
+USE_XORG=	x11 xt xinerama
 
-MAKE_ENV+=		LDFLAGS="${LDFLAGS}"
+MAKE_ENV+=	LDFLAGS="${LDFLAGS}"
 
-OPTIONS_DEFINE=	APP CURL DEBUG EXIF HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
+OPTIONS_DEFINE=	APP CURL DEBUG EXIF FONTS HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
 
 OPTIONS_DEFAULT=DOCS DCRAW EXIF HELP MAGIC MKSTEMPS XINERAMA
 OPTIONS_SUB=	yes
 SLASH=/
-APP_DESC=				Install icons to "${SLASH}usr${SLASH}share", and call gtk-update-icon-cache afterwards
-CURL_DESC=				Data transfer support, requires curl heimdal option. use libcurl to view https:// and similar images
-DEBUG_DESCR=			Debug build, enables --debug
-EXIF_DESC=				Enable builtin EXIF tag display support
-HELP_DESC=				Include help text (refers to the manpage otherwise)
-#INOTIFY_DESC=			Enable inotify, needed for --auto-reload
-STAT64_DESC=			Support CIFS shares from 64bit hosts on 32bit machines
-MAGIC_DESC=				Use libmagic to filter unsupported file formats
-MKSTEMPS_DESC=			Whether your libc provides mkstemps(). feh will be able to load gif images via libcurl
-VERSCMP_DESC=			Whether your libc provides strvercmp() [it does not?] feh will not use an internal implementation
-XINERAMA_DESC=			Support Xinerama/XRandR multiscreen setups
+APP_DESC=		Install icons to "${SLASH}usr${SLASH}share", and call gtk-update-icon-cache afterwards
+CURL_DESC=		Data transfer support, requires curl heimdal option. use libcurl to view https:// and similar images
+DEBUG_DESCR=		Debug build, enables --debug
+EXIF_DESC=		Enable builtin EXIF tag display support
+HELP_DESC=		Include help text (refers to the manpage otherwise)
+FONTS_DESC=		Install the bundled NotoSans-Medium.ttf font to font_dir.
+#INOTIFY_DESC=		Enable inotify, needed for --auto-reload
+STAT64_DESC=		Support CIFS shares from 64bit hosts on 32bit machines
+MAGIC_DESC=		Use libmagic to filter unsupported file formats
+MKSTEMPS_DESC=		Whether your libc provides mkstemps(). feh will be able to load gif images via libcurl
+VERSCMP_DESC=		Whether your libc provides strvercmp() [it does not?] feh will not use an internal implementation
+XINERAMA_DESC=		Support Xinerama/XRandR multiscreen setups
 
-APP_MAKE_ENV=			app=1
-APP_MAKE_ENV_OFF=		app=0
+APP_MAKE_ENV=		app=1
+APP_MAKE_ENV_OFF=	app=0
 
-CURL_LIB_DEPENDS=		libcurl.so:ftp/curl
-CURL_MAKE_ENV=			curl=1
-CURL_MAKE_ENV_OFF=		curl=0
+CURL_LIB_DEPENDS=	libcurl.so:ftp/curl
+CURL_MAKE_ENV=		curl=1
+CURL_MAKE_ENV_OFF=	curl=0
 
-DEBUG_MAKE_ENV=			debug=1
-DEBUG_MAKE_ENV_OFF=		debug=0
+DEBUG_MAKE_ENV=		debug=1
+DEBUG_MAKE_ENV_OFF=	debug=0
 
-EXIF_LIB_DEPENDS=		libexif.so:graphics/libexif
-EXIF_MAKE_ENV=			exif=1
-EXIF_MAKE_ENV_OFF=		exif=0
+EXIF_LIB_DEPENDS=	libexif.so:graphics/libexif
+EXIF_MAKE_ENV=		exif=1
+EXIF_MAKE_ENV_OFF=	exif=0
 
-HELP_MAKE_ENV=			help=1
-HELP_MAKE_ENV_OFF=		help=0
+HELP_MAKE_ENV=		help=1
+HELP_MAKE_ENV_OFF=	help=0
 
-#INOTIFY_MAKE_ENV=		inotify=1
+FONTS_ENV=		install_fonts=1
+FONTS_ENV_OFF=		install_fonts=0
+
+#INOTIFY_MAKE_ENV=	inotify=1
 INOTIFY_MAKE_ENV_OFF=	inotify=0
 
-STAT64_MAKE_ENV=		stat64=1
+STAT64_MAKE_ENV=	stat64=1
 STAT64_MAKE_ENV_OFF=	stat64=0
 
-MAGIC_MAKE_ENV=			magic=1
-MAGIC_MAKE_ENV_OFF=		magic=0
+MAGIC_MAKE_ENV=		magic=1
+MAGIC_MAKE_ENV_OFF=	magic=0
 
-MKSTEMPS_MAKE_ENV=		mkstemps=1
+MKSTEMPS_MAKE_ENV=	mkstemps=1
 MKSTEMPS_MAKE_ENV_OFF=	mkstemps=0
 
-VERSCMP_MAKE_ENV=		verscmp=1
+VERSCMP_MAKE_ENV=	verscmp=1
 VERSCMP_MAKE_ENV_OFF=	verscmp=0
 
-XINERAMA_MAKE_ENV=		xinerama=1
+XINERAMA_MAKE_ENV=	xinerama=1
 XINERAMA_MAKE_ENV_OFF=	xinerama=0
 
 # Defined options from upstream github page grid:
-#	Flag 	Default value 	Description
-#	app 		0 			install icons to /usr/share, regardless of DESTDIR and PREFIX, and call gtk-update-icon-cache afterwards
-#	curl	 	1 			use libcurl to view https:// and similar images
-#	debug 		0 			debug build, enables --debug
-#	exif 		0 			Builtin EXIF tag display support
-#	help 		0 			include help text (refers to the manpage otherwise)
-#	inotify 	0 			enable inotify, needed for --auto-reload
-#	stat64 		0 			Support CIFS shares from 64bit hosts on 32bit machines
-#	magic 		0 			Use libmagic to filter unsupported file formats
-#	mkstemps 	1 			Whether your libc provides mkstemps(). If set to 0, feh will be unable to load gif images via libcurl
-#	verscmp 	1 			Whether your libc provides strvercmp(). If set to 0, feh will use an internal implementation.
-#	xinerama 	1 			Support Xinerama/XRandR multiscreen setups
+# Flag          Default Description
+# app 		0 	install icons to /usr/share, regardless of DESTDIR and PREFIX, and call gtk-update-icon-cache afterwards
+# curl		1 	use libcurl to view https:// and similar images
+# debug 	0 	debug build, enables --debug
+# exif 		0 	Builtin EXIF tag display support
+# help 		0 	include help text (refers to the manpage otherwise)
+# install_fonts 1 	Install the bundled NotoSans-Medium.ttf font to font_dir.
+#			  Package maintainers may set this to 0 and adjust font_dir to use a
+#			  system-wide NotoSans-Medium instance instead.
+# inotify 	0 	enable inotify, needed for --auto-reload
+# stat64 	0 	Support CIFS shares from 64bit hosts on 32bit machines
+# magic 	0 	Use libmagic to filter unsupported file formats
+# mkstemps 	1 	Whether your libc provides mkstemps(). If set to 0, feh will be unable to load gif images via libcurl
+# verscmp 	1 	Whether your libc provides strvercmp(). If set to 0, feh will use an internal implementation.
+# xinerama	1 	Support Xinerama/XRandR multiscreen setups
 
 # Not sure if necessary
 #post-install:

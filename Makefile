@@ -27,17 +27,16 @@ USE_XORG=	x11 xt xinerama
 
 MAKE_ENV+=	LDFLAGS="${LDFLAGS}"
 
-OPTIONS_DEFINE=	APP CURL DEBUG EXIF FONTS HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
+OPTIONS_DEFINE=	APP CURL DEBUG EXIF HELP STAT64 MAGIC MKSTEMPS VERSCMP XINERAMA
 
 OPTIONS_DEFAULT=DOCS DCRAW EXIF HELP MAGIC MKSTEMPS XINERAMA
 OPTIONS_SUB=	yes
-SLASH=/
 APP_DESC=		Install icons to "${SLASH}usr${SLASH}share", and call gtk-update-icon-cache afterwards
 CURL_DESC=		Data transfer support, requires curl heimdal option. use libcurl to view https:// and similar images
 DEBUG_DESCR=		Debug build, enables --debug
 EXIF_DESC=		Enable builtin EXIF tag display support
 HELP_DESC=		Include help text (refers to the manpage otherwise)
-FONTS_DESC=		Install the bundled NotoSans-Medium.ttf font to font_dir.
+#FONTS_DESC=		Install the bundled NotoSans-Medium.ttf font to font_dir.
 #INOTIFY_DESC=		Enable inotify, needed for --auto-reload
 STAT64_DESC=		Support CIFS shares from 64bit hosts on 32bit machines
 MAGIC_DESC=		Use libmagic to filter unsupported file formats
@@ -62,8 +61,8 @@ EXIF_MAKE_ENV_OFF=	exif=0
 HELP_MAKE_ENV=		help=1
 HELP_MAKE_ENV_OFF=	help=0
 
-FONTS_ENV=		install_fonts=1
-FONTS_ENV_OFF=		install_fonts=0
+#FONTS_ENV=		install_fonts=1
+#FONTS_ENV_OFF=		install_fonts=0
 
 #INOTIFY_MAKE_ENV=	inotify=1
 INOTIFY_MAKE_ENV_OFF=	inotify=0
@@ -82,6 +81,9 @@ VERSCMP_MAKE_ENV_OFF=	verscmp=0
 
 XINERAMA_MAKE_ENV=	xinerama=1
 XINERAMA_MAKE_ENV_OFF=	xinerama=0
+
+# The fonts option when enabled means nothing bundled is installed but the dependency on noto-sans from ports is needed.
+# It also means that the font_dir needs to be assigned to where noto-san is installed.
 
 # Defined options from upstream github page grid:
 # Flag          Default Description
